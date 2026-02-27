@@ -1,5 +1,3 @@
 export default function SettingsLoadingPage() {
-    return (
-        <div></div>
-    );
+  return <div></div>;
 }

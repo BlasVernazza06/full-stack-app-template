@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
+    "@repo/auth": "workspace:*",
     "@repo/ui": "workspace:*",
     "@repo/validators": "workspace:*",
+    "@ridemountainpig/svgl-react": "^1.0.15",
     "better-auth": "^1.4.19",
     "lucide-react": "^0.454.0",
     "motion": "^12.34.3",

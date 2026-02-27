@@ -1,5 +1,9 @@
 import { useCallback, useState } from 'react';
-export type UseCopyToClipboardReturn = [(text: string) => Promise<void>, boolean];
+
+export type UseCopyToClipboardReturn = [
+  (text: string) => Promise<void>,
+  boolean,
+];
 
 export function useCopyToClipboard(): UseCopyToClipboardReturn {
   const [isCopied, setIsCopied] = useState(false);

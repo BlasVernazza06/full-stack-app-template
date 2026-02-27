@@ -1,5 +1,3 @@
 export default function ProfileLoadingPage() {
-    return (
-        <div></div>
-    );
+  return <div></div>;
 }

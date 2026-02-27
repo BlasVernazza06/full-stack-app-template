@@ -1,6 +1,3 @@
 export function Providers() {
-    return (
-        <>
-        </>
-    )
+  return <></>;
 }
