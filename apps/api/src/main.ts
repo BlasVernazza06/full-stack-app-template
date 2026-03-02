@@ -1,11 +1,25 @@
-import 'dotenv/config';
-
+import {
+  ExceptionFilter,
+  INestApplication,
+  NestInterceptor,
+} from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
+import 'dotenv/config';
+
 import { AppModule } from './app.module';
+import { HttpExceptionFilter } from './common/filters/http-exception.filter';
+import { LoggingInterceptor } from './common/interceptors/logging.interceptor';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, { bodyParser: false });
+  console.log('--- Starting API Bootstrap ---');
+  const app: INestApplication = await NestFactory.create(AppModule, {
+    rawBody: true,
+  });
+
+  app.setGlobalPrefix('api');
+  app.useGlobalFilters(new HttpExceptionFilter() as ExceptionFilter);
+  app.useGlobalInterceptors(new LoggingInterceptor() as NestInterceptor);
 
   // Habilitar CORS para que el Frontend pueda comunicarse con el Backend
   app.enableCors({
